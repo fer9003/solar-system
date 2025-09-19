@@ -6,7 +6,7 @@ on:
       - main
       - 'feature/*'
 env:
-  MONGO_URI: 'mongodb+srv://cluster0.lsc8nfk.mongodb.net/'
+  MONGO_URI: 'mongodb+srv://cluster0.lsc8nfk.mongodb.nettttt/'
   MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
   MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
