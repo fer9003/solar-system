@@ -23,6 +23,8 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: npm install
+    - name: Setup Atlas Test Data
+      run: node setup-atlas-data.js
     - name: Unit Test
       run: |
         npm test

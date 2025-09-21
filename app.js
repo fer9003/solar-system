@@ -17,9 +17,9 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 }, function(err) {
     if (err) {
-        console.log("error!! " + err)
+        console.log("MongoDB Connection Error:", err)
     } else {
-      //  console.log("MongoDB Connection Successful")
+        console.log("MongoDB Connection Successful to:", process.env.MONGO_URI)
     }
 })
 
@@ -38,7 +38,7 @@ var planetModel = mongoose.model('planets', dataSchema);
 
 
 app.post('/planet',   function(req, res) {
-   // console.log("Received Planet ID " + req.body.id)
+    console.log("Received Planet ID:", req.body.id)
     planetModel.findOne({
         id: req.body.id
     }, function(err, planetData) {
@@ -46,6 +46,7 @@ app.post('/planet',   function(req, res) {
             console.log("Error in Planet Data:", err)
             res.status(500).send("Error in Planet Data")
         } else {
+            console.log("Found planet data:", planetData)
             res.send(planetData);
         }
     })
