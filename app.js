@@ -1,13 +1,12 @@
 const path = require('path');
 const express = require('express');
 const OS = require('os');
-const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const app = express();
 const cors = require('cors')
 
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
@@ -44,8 +43,8 @@ app.post('/planet',   function(req, res) {
         id: req.body.id
     }, function(err, planetData) {
         if (err) {
-            alert("Ooops, We only have 9 planets and a sun. Select a number from 0 - 9")
-            res.send("Error in Planet Data")
+            console.log("Error in Planet Data:", err)
+            res.status(500).send("Error in Planet Data")
         } else {
             res.send(planetData);
         }

@@ -85,7 +85,7 @@ describe('Planets API Suite', () => {
               });
         });
 
-        it('it should fetch a planet named Satrun', (done) => {
+        it('it should fetch a planet named Saturn', (done) => {
             let payload = {
                 id: 6
             }
